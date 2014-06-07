@@ -34,14 +34,14 @@ Because the site was created in November 2013, when Express 3.x was the latest, 
 
 ## Contact
 
-Twitter: @dhritzkiv
-Website: [danielhritzkiv.com](http://danielhritzkiv.com)
+- Twitter: @dhritzkiv
+- Website: [danielhritzkiv.com](http://danielhritzkiv.com)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2014 Daniel Hritzkiv
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
