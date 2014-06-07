@@ -1,0 +1,156 @@
+@import "compass/reset";
+@import "compass/css3";
+@import 'flexbox';
+@import "partials/mixins";
+@import "_buttons-forms";
+@import "_core";
+@import "_fonts";
+@import "animation";
+
+html {
+	background-color: white;
+	font-family: $BodyText;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 0 20px;
+	overflow: hidden;
+	@include box-sizing(border-box);
+}
+
+.scroll {
+	max-height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+h2 {
+	text-transform: uppercase;
+	color: $lightgrey;
+}
+
+main {
+	position: relative;
+	z-index: 5;
+	padding: 20px 0;
+	margin-bottom: 10px;
+	width: 100%;
+	@include transition(filter 350ms $easeOutQuart, transform 350ms $easeOutQuart, opacity 350ms $easeOutQuart, z-index 350ms $easeOutQuart);
+	
+	&.loading article.quote {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+}
+
+.quote h1 {
+	text-transform: uppercase;
+}
+
+.quote .more {
+	margin-top: 16px;
+}
+
+.message {
+	
+	&.success {
+		color: #99cc33;
+	}
+	
+	&.error {
+		color: $red;
+	}
+}
+
+.flex-center {
+	display: -moz-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-line-pack: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-ms-flex-direction: column;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	@include bp(iphoneLandscape) {
+		//display: block;
+		//position: relative;
+	}
+}
+
+#overlay {
+	position: absolute;
+	//background-color: white;
+	//background-color: rgba(white, 0.95);
+	z-index: 0;
+	opacity: 0;
+	pointer-events: none;
+	@include transition(z-index 350ms $easeOutQuart, opacity 350ms $easeOutQuart);
+}
+
+body.show-overlay #overlay{
+	z-index: 10;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+body.show-overlay main {
+	opacity: 0;
+	@include opacity(0.1);
+	@include filter(blur(4px));
+	@include transform(scale(0.85));
+}
+
+#overlay-trigger {
+	position: fixed;
+	cursor: pointer;
+	bottom: 8px;
+	right: 8px;
+	height: 32px;
+	width: 32px;
+	font-family: $HeadlineText;
+	background-color: $lightgrey;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	line-height: 32px;
+	font-size: 24px;
+	border-radius: 50%;
+	z-index: 20;
+	@include user-select(none);
+	
+	&:before {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		content: "?";
+	}
+	
+	body.show-overlay &:before {
+		content: "X";
+	}
+}

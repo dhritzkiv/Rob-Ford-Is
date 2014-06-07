@@ -1,0 +1,187 @@
+@include selection(white, $red);
+
+@include placeholder("") {
+	color: $lightgrey;
+	text-shadow: none;
+	font-style: italic;
+	font-weight: 500;
+}
+
+@include placeholder("[required]") {
+	color: $midgrey;
+	font-weight: 700;
+}
+
+
+html {
+	font-size: 16px;
+	line-height: 120%;
+	color: $darkgrey;
+	text-align: center;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+%smallText {
+	font-size: 14px;
+	line-height: 21px;
+}
+
+%quoteText {
+	font-size: 24px;
+	line-height: 36px;
+	color: $darkgrey;
+	//margin: 20px 0;
+	padding: $padding 0;
+	font-family: $BodyText;
+	font-weight: 400;
+	
+	p {
+		text-indent: 0;
+		margin: 0;
+	}
+}
+
+%offside {
+	position: absolute;
+	top: 0;
+	left: -340px;
+	padding: $padding;
+	width: 340px;
+	text-align: right;
+	max-height: 100%;
+	@include calc(max-height, "100% - #{$padding} - #{$padding}");
+	@include box-sizing(border-box);
+	
+	p, span, a {
+		text-overflow: ellipsis;
+		max-width: 100%;
+		overflow: hidden;
+	}
+	
+	@include bp(desktopNarrow) {
+		width: 240px;
+		left: -240px;
+	}
+	
+	@include bp(desktopSkinny) {
+		width: 100%;
+		max-height: none;
+		position: relative;
+		//float: left;
+		top: auto;
+		left: auto;
+		text-align: left;
+		padding: 0;
+		
+		img + &, video + & {
+			margin-top: 10px;
+		}
+	}
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+a {
+	color: $blue;
+	text-decoration: underline;
+	//border-bottom: 1px solid $blue;
+	@include transition(color 100ms $easeOutQuint, border-color 100ms $easeOutQuint);
+	
+	&:hover {
+		color: lighten($blue, 10%);
+		//border-color: lighten($blue, 10%);
+		@include transition-duration(250ms);
+	}
+	
+	&:focus {
+		outline: none;
+	}
+}
+
+p, li {
+	line-height: 140%;
+}
+
+p {
+	margin: 14px 0;
+}
+
+.body p {
+	//text-indent: 14px;
+}
+
+.small-text, .small-text p, p.small-text {
+	@extend %smallText;
+}
+
+cite {
+	font-style: italic;
+	color: $lightgrey;
+}
+
+i, em {
+	font-style: italic;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+ul {
+	margin-bottom: 14px;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: $HeadlineText;
+	font-weight: 600;
+	line-height: 110%;	
+}
+
+h1, h2, h3, h4 {
+	& a[href] {
+		border-bottom: none;
+		text-decoration: none;
+	}
+}
+
+h1 {
+	font-size: 64px;
+	margin: 16px 0;
+	
+	@include bp(iphoneLandscape) {
+		font-size: 36px;
+		margin: 10px 0;
+	}
+}
+
+h2 {
+	font-size: 21px;
+	margin: 14px 0 0 0;
+	letter-spacing: 3px;
+	
+	@include bp(iphoneLandscape) {
+		font-size: 18px;
+		margin: 8px 0;
+	}
+}
+
+h3 {
+	font-size: 18px;
+	margin: 12px 0 8px 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}

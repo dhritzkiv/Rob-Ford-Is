@@ -1,0 +1,10 @@
+# Ignore sass-cache files.
+*.sass-cache*
+.DS_Store
+node_modules/
+public/images/*
+public/upload/*
+public/videos/*
+
+.scssc
+
