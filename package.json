@@ -2,7 +2,7 @@
   "name": "Rob-Ford-Is",
   "description": "Who is Rob Ford?",
   "author": "Daniel Hritzkiv <daniel.hritzkiv@gmail.com>",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app"
