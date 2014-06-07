@@ -1,0 +1,8 @@
+{>"layout"/}
+	
+{<main}
+	<article id="load-quote" data-quote-id="{id}" class="quote container"></article>
+	<script>
+		var limit = {limit|js};
+	</script>
+{/main}

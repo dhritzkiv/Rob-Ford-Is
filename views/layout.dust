@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	{>"partials/_head"/}
+		
+	<body>
+	
+		<div class="flex-center">
+		
+			<main id="main">
+				<header>
+					<h2>Rob Ford is</h2>
+				</header>
+				<div id="content" class="content">
+					{+main/}
+				</div>
+			</main>
+			
+		</div>
+		
+		<a id="overlay-trigger" title="more info"></a>
+			
+		<footer id="overlay" class="flex-center">
+			<div class="container scroll">
+				<p>WhoIsRobFord.com is a satirical site amalgamating the actual sound bites and claims by Rob Ford and his brother Doug. Seeing as how outrageous &ndash; and more often than not, erroneous &ndash; these quotes are, it just goes to show that you shouldn't give credence to what the Ford duo have to say.</p>
+				<p>Have a quote you'd like to suggest? Add it <a href="/quotes/post">here.</a> It will be reviewed before posting.<br/>
+				Spotted an inaccuracy? Send me a tweet at <a href="http://twitter.com/dhritzkiv">@dhritzkiv</a>.</p>
+				
+				<p class="small-text">Made in Toronto by <a href="http://danielhritzkiv.com" title="bike-riding, left-wing pinko">Daniel Hritzkiv.</a></p>
+			</div>
+		</footer>
+		
+		{>"partials/_analytics"/}
+		
+	</body>				
+</html>

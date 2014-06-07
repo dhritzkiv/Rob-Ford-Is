@@ -1,0 +1,45 @@
+{>"layout"/}
+	
+{<main}
+	<div class="container">
+		
+		{?message}<h3 class="message success">{message}</h3>{/message}
+		{?error}<h3 class="message error">{error}</h3>{/error}
+		
+		<form {?quote}action="/quotes/{quote._id}"{:else}action="/quotes"{/quote} method="post">
+		
+			{@eq key=writeMode value="edit"}
+				<h3>Edit "{quote.slug}"</h3>
+				<h4 class="small-text">id: {quote._id}</h4>
+				<input type='hidden' name='_method' value='PUT'/>
+				<input name="secret" placeholder="you can't edit this unless you know the secret" required="required" type="password"/>
+			{:else}
+			{/eq}
+				
+			<input name="text" placeholder="The Quote" required="required" value="{quote.text}"/>
+			<input name="altText" placeholder="Alt Text. Appears as tooltip text on text hover." value="{quote.altText}"/>
+			<input name="link" placeholder="Link to an article with said quote. http://..." required="required" value="{quote.link}"/>
+			<input name="who" placeholder="Who said it? (e.g. Rob Ford)" title="Who said it?"  value="{quote.who}"/>
+			<input name="date" placeholder="Date it was said. (YYYY-MM-DD)" title="Date" {?quote.date}value='{@date date=quote.date format="YYYY-MM-DD"/}'{/quote.date}/>
+			<input name="slug" placeholder="A url slug. (e.g. honest-politician)" title="Url slug"  value="{quote.slug}"/>
+			
+			{@eq key=writeMode value="edit"}
+				<label>
+					<input type='checkbox' title="Public?" name="state" {@eq key=quote.state value=1}checked="checked"{/eq}/>
+					<span class="left">Public</span>
+				</label>
+			{/eq}
+		
+			<div class="small-text">
+				<p>Fields in bold are required.</br>
+				Submissions will be reviewed before posting. Submitted quotes may be editorialized for style or content.</p>
+			</div>
+			{@eq key=writeMode value="edit"}
+				<button type="submit">Save</button>
+			{:else}
+				<button type="submit">Submit</button>
+			{/eq}
+		</form>
+	
+	</div>
+{/main}

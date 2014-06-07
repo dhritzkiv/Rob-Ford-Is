@@ -1,0 +1,217 @@
+@import "compass/css3";
+@import "partials/mixins";
+
+%interactive {
+	display: inline-block;
+	height: 36px;
+	border: none;
+	font-size: 18px;
+	font-family: $ButtonText;
+	-webkit-font-smoothing: antialiased;
+	outline: none;
+	@include transition(background-color 150ms $easeOutQuint, color 150ms $easeOutQuint, filter 150ms $easeOutQuint);
+	@include box-sizing(border-box);
+	@include appearance(none);
+	
+	&[disabled], &[type=disabled], &.disabled {
+		opacity: 0.65;
+	}
+	
+	&:hover, &:focus {
+		@include transition-duration(300ms);
+	}
+}
+
+%button-like {
+	display: inline-block;
+	padding: 0px 12px;
+	height: 36px;
+	font-size: 18px;
+	background-color: $red;
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0 4px 4px 0px;
+	white-space: nowrap;
+	border: none;
+	font-family: $ButtonText;
+	line-height: 34px;
+	@include box-sizing(border-box);
+	@include appearance(none);
+	
+	&.small {
+		font-size: 14px;
+		height: 22px;
+		line-height: 22px;
+		padding: 0px 8px;
+	}
+
+	
+	&.blue {
+		background-color: $blue;
+	}
+	
+	&:last-child {
+		margin-right: 0;
+	}
+	
+	a%button-like {
+		color: white;
+		text-decoration: none;
+		
+		&:hover {
+			color: white;
+		}
+	}
+}
+
+%button {
+	@extend %interactive;
+	@extend %button-like;
+	cursor: pointer;
+	max-width: 95%;
+	
+	&:hover {
+		background-color: #ff0000;
+		color: white;
+	}
+	
+	& a {//does this target anything?
+		//margin-top: 3px;
+		display: block;
+		height: 100%;
+		border-bottom: none;
+	}
+}
+
+.buttons {
+	clear: left;
+	margin: 8px 0;
+}
+
+input, select, textarea {
+	margin: 0;
+	width: 100%;
+	@extend %interactive;
+	padding: 4px 7px;
+	color: $slategrey;
+	background-color: rgba(white, 0.8);
+	//outline-color: $blue;
+	//background-color: rgba(210,210,210,0.15);
+	//background-color: rgba($slategrey, 0.04);
+	border: 1px solid $palegrey;
+	border-radius: 0;
+	
+	&:focus {
+		background-color: white;
+		border-color: $slategrey;
+		border-color: $blue;
+	}
+	
+	&.error:not(:focus) {
+		background-color: red;
+		color: white;
+	}
+	
+	&[required] {
+		font-weight: bold;
+	}
+}
+
+form {
+	input, input[type=text], input[type=email], input[type=password], input[type=date], input[type=search], textarea {
+		margin-bottom: 6px;
+	}
+}
+
+label {
+	float: left;
+	width: 100%;
+	color: $lightgrey;
+	margin-top: 6px;
+	margin-bottom: 4px;
+	padding: 0px 4px;
+	@include box-sizing(border-box);
+}
+
+label input, label select, label textarea {
+	float: left;
+	width: 100%;
+}
+
+.buttons.radio label {
+	float: left;
+	width: 100%;
+}
+
+textarea {
+	@extend input;
+	height: auto;
+	width: 100%;
+	max-width: inherit;
+	resize: vertical;
+}
+
+footer input {
+	background-color: rgba(255,255,255,0.2);
+	color: $offwhite;
+	
+	&:focus {
+		background-color: rgba(255,255,255,0.25);
+	}
+}
+
+select {
+	padding-right: 21px;
+}
+
+input[name=delete] {
+	background-color: $lightgrey;
+}
+
+input[type=checkbox], input[type=radio] {
+	@extend %button;
+	background-color: white;
+	border: 1px solid $palegrey;
+	float: left;
+	margin-right: 10px;
+	margin-top: 4px;
+	height: 36px;
+	width: 36px;
+	clear: both;
+	padding: 0;
+	
+	&:checked {
+		background-color: $blue;
+	}
+	
+	&:hover {
+		@include filter(brightness(110%));
+	}
+	
+	&:checked:before {
+		display: block;
+		height: 100%;
+		width: 100%;
+		//content: "\2713";
+		content: "\2022";
+		font-size: 36px;
+		text-align: center;
+		line-height: 26px;
+	}
+	
+	& + label {
+		line-height: 36px;
+		margin-top: 4px;
+	}
+	
+	& + span {
+		line-height: 40px;
+	}
+}
+
+button, .button, input[type=submit] {
+	@extend %button;
+	width: auto;
+	text-decoration: none;
+}

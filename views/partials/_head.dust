@@ -1,0 +1,25 @@
+<head>
+	<title>{title}</title>
+	<meta charset='utf-8'/>
+	<meta name='description' content='The things that Rob Ford is.'/>
+	<meta property="og:image" content="http://whoisrobford.com/img/thumbnail.png"/>
+	<link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="/img/favicon.png" type="image/png"/>
+	
+	<link rel='stylesheet' href='/styles/Rob-Ford-Is.css?v={version}'/>	
+	
+	<!--[if lte IE 9]>
+	<script type="text/javascript" src='/scripts/es5-shim.min.js'></script>
+	<script type="text/javascript" src='/scripts/es5-sham.min.js'></script>
+	<script type="text/javascript" src='/scripts/classList.js'></script>
+	<![endif]-->
+	
+	<!--[if lte IE 8]>
+	<script type="text/javascript" src='/scripts/html5shiv.js'></script>
+	<![endif]-->
+	
+	<script src='/scripts/moment.min.js'></script>
+	<script src='/scripts/Rob-Ford-Is.min.js?v={version}'></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+</head>
